@@ -352,4 +352,8 @@ footer {
   .hero {
     min-height: 90vh;
   }
+
+  .hero video {
+    object-fit: contain;
+  }
 }
