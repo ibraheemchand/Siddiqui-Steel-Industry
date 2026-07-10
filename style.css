@@ -1,14 +1,37 @@
 :root {
-  --bg: #0b0d10;
-  --panel: #131820;
-  --text: #e8eef5;
-  --muted: #b7c2cf;
-  --steel: #a7b7c7;
-  --accent: #1f6fb2;
-  --accent-2: #123152;
-  --shadow: rgba(0, 0, 0, 0.45);
-  --radius: 18px;
-  --maxw: 1100px;
+  /* Nike monochrome palette */
+  --ink: #111111;
+  --on-primary: #ffffff;
+  --canvas: #ffffff;
+  --soft-cloud: #f5f5f5;
+  --charcoal: #39393b;
+  --ash: #4b4b4d;
+  --mute: #707072;
+  --stone: #9e9ea0;
+  --hairline: #cacacb;
+  --hairline-soft: #e5e5e5;
+  --sale: #d30005;
+  --success: #007d48;
+
+  /* Fonts */
+  --font-display: "Bebas Neue", "Inter", Helvetica, Arial, sans-serif;
+  --font-ui: "Inter", Helvetica, Arial, sans-serif;
+
+  /* Spacing (8px system) */
+  --sp-xs: 4px;
+  --sp-sm: 8px;
+  --sp-md: 12px;
+  --sp-lg: 18px;
+  --sp-xl: 24px;
+  --sp-xxl: 30px;
+  --sp-section: 48px;
+
+  /* Radius */
+  --r-md: 24px;
+  --r-lg: 30px;
+  --r-full: 9999px;
+
+  --maxw: 1440px;
 }
 
 * {
@@ -22,10 +45,12 @@ html {
 }
 
 body {
-  font-family: "Poppins", system-ui, -apple-system, Segoe UI, sans-serif;
-  background: radial-gradient(1200px 700px at 80% -10%, #152233 0%, #0b0d10 55%, #07080a 100%);
-  color: var(--text);
-  line-height: 1.6;
+  font-family: var(--font-ui);
+  font-weight: 400;
+  background: var(--canvas);
+  color: var(--ink);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -38,64 +63,99 @@ a {
   margin: 0 auto;
 }
 
+/* Buttons — pill geometry only */
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  background: linear-gradient(135deg, var(--accent), #1b4e92);
-  color: white;
-  padding: 0.9rem 1.5rem;
-  border-radius: 999px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  box-shadow: 0 12px 30px rgba(42, 125, 225, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 0.5rem;
+  background: var(--ink);
+  color: var(--on-primary);
+  padding: 14px 32px;
+  min-height: 48px;
+  border-radius: var(--r-lg);
+  font-family: var(--font-ui);
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(42, 125, 225, 0.38);
+  opacity: 0.85;
+}
+
+.btn:active {
+  transform: scale(0.97);
+  opacity: 0.6;
+}
+
+/* Secondary / on-image outline pill */
+.ghost {
+  background: var(--canvas);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.ghost:hover {
+  background: var(--soft-cloud);
+  opacity: 1;
 }
 
 .section {
-  padding: 5.5rem 0;
+  padding: var(--sp-section) 0;
 }
 
+/* Eyebrow — caption uppercase */
 .eyebrow {
-  color: var(--steel);
+  color: var(--mute);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: 0.78rem;
+  letter-spacing: 0.4px;
+  font-size: 12px;
+  font-weight: 500;
 }
 
+/* Section headers — heading-xl, uppercase */
 .title {
-  font-family: "Poppins", sans-serif;
-  font-size: clamp(2rem, 4vw, 3.1rem);
-  letter-spacing: 0.8px;
-  margin-top: 0.5rem;
-  margin-bottom: 1.4rem;
+  font-family: var(--font-ui);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+  margin-top: var(--sp-sm);
+  margin-bottom: var(--sp-xl);
+  color: var(--ink);
 }
 
+/* Cards grid (services) */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.6rem;
+  gap: var(--sp-sm);
 }
 
 .card {
-  background: linear-gradient(160deg, rgba(19, 24, 32, 0.95), rgba(15, 17, 24, 0.95));
-  border: 1px solid rgba(154, 167, 180, 0.15);
-  padding: 1.8rem;
-  border-radius: var(--radius);
-  box-shadow: 0 20px 40px var(--shadow);
-  min-height: 190px;
+  background: var(--soft-cloud);
+  border: none;
+  padding: var(--sp-xl);
+  border-radius: 0;
+  box-shadow: none;
+  min-height: 200px;
 }
 
 .card h3 {
-  font-size: 1.2rem;
-  margin-top: 1rem;
-  margin-bottom: 0.6rem;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  margin-top: var(--sp-md);
+  margin-bottom: var(--sp-xs);
+  text-transform: uppercase;
+}
+
+.card .muted {
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .icon {
@@ -104,19 +164,19 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  background: rgba(42, 125, 225, 0.15);
-  border: 1px solid rgba(42, 125, 225, 0.3);
+  border-radius: var(--r-full);
+  background: var(--canvas);
+  border: 1px solid var(--hairline);
 }
 
-/* Header */
+/* Header / Nav */
 header {
   position: fixed;
   inset: 0 0 auto 0;
-  padding: 1rem 0;
-  background: linear-gradient(180deg, rgba(7, 8, 10, 0.92), rgba(7, 8, 10, 0));
+  padding: 0;
+  background: var(--canvas);
   z-index: 10;
-  backdrop-filter: blur(6px);
+  box-shadow: inset 0 -1px 0 var(--hairline-soft);
 }
 
 .nav {
@@ -124,44 +184,54 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
+  height: 64px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.8rem;
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
+  gap: 0.7rem;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--ink);
 }
 
 .brand-logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  border: 2px solid rgba(154, 167, 180, 0.4);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--r-full);
+  border: none;
   object-fit: cover;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  box-shadow: none;
 }
 
 .nav-links {
   display: flex;
-  gap: 1.5rem;
-  font-size: 0.95rem;
-  color: var(--muted);
+  gap: var(--sp-xl);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.nav-links a {
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.15s ease;
 }
 
 .nav-links a:hover {
-  color: var(--text);
+  border-bottom-color: var(--ink);
 }
 
-/* Hero */
+/* Hero — editorial campaign lockup */
 .hero {
   position: relative;
   min-height: 100vh;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: flex-end;
   overflow: hidden;
 }
 
@@ -171,7 +241,6 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.75) contrast(1.15);
   pointer-events: none;
 }
 
@@ -179,181 +248,302 @@ header {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(7, 8, 10, 0.75), rgba(7, 8, 10, 0.55), rgba(7, 8, 10, 0.85));
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.15), rgba(17, 17, 17, 0.15), rgba(17, 17, 17, 0.6));
 }
 
 .hero-content {
   position: relative;
-  text-align: center;
-  max-width: 780px;
-  padding: 0 1.5rem;
+  text-align: left;
+  max-width: 900px;
+  padding: 0 2.5rem var(--sp-section);
   z-index: 1;
-  animation: fadeUp 0.9s ease-out both;
+  color: var(--on-primary);
+}
+
+.hero .eyebrow {
+  color: var(--on-primary);
+  opacity: 0.9;
 }
 
 .hero h1 {
-  font-family: "Poppins", sans-serif;
-  font-size: clamp(2.6rem, 6vw, 4.8rem);
-  letter-spacing: 1.2px;
-  margin-bottom: 0.8rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 12vw, 8rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  margin: var(--sp-sm) 0 var(--sp-md);
+  color: var(--on-primary);
 }
 
 .hero p {
-  color: var(--muted);
-  font-size: clamp(1.05rem, 2.4vw, 1.3rem);
-  margin-bottom: 2rem;
+  color: var(--on-primary);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 400;
+  max-width: 520px;
+  margin-bottom: var(--sp-xl);
 }
 
 .hero-actions {
   display: inline-flex;
-  gap: 1rem;
+  gap: var(--sp-md);
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-.ghost {
-  background: transparent;
-  border: 1px solid rgba(232, 238, 245, 0.3);
-  color: var(--text);
-  box-shadow: none;
+.hero .ghost {
+  background: var(--canvas);
+  color: var(--ink);
+  border: none;
 }
 
 /* About */
 .about-wrap {
   display: grid;
-  gap: 2.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  align-items: center;
+  gap: var(--sp-section);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
 }
 
 .about-panel {
-  background: var(--panel);
-  border-radius: var(--radius);
-  padding: 2.2rem;
-  border: 1px solid rgba(154, 167, 180, 0.16);
-  box-shadow: 0 22px 48px var(--shadow);
+  background: var(--soft-cloud);
+  border-radius: 0;
+  padding: var(--sp-xl);
+  border: none;
+  box-shadow: none;
 }
 
 .about-panel h3 {
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 0.6rem;
+  font-family: var(--font-ui);
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-md);
 }
 
 .leader-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.6rem;
-  margin-top: 2.2rem;
+  gap: var(--sp-sm);
+  margin-top: var(--sp-section);
 }
 
 .leader-card {
-  background: linear-gradient(160deg, rgba(19, 24, 32, 0.92), rgba(13, 16, 22, 0.98));
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  border: 1px solid rgba(154, 167, 180, 0.16);
+  background: var(--soft-cloud);
+  border-radius: 0;
+  padding: var(--sp-xl);
+  border: none;
   text-align: center;
 }
 
 .leader-photo {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  border-radius: var(--r-full);
   object-fit: cover;
-  border: 3px solid rgba(42, 125, 225, 0.4);
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
-  margin-bottom: 1rem;
+  border: none;
+  box-shadow: none;
+  margin-bottom: var(--sp-md);
 }
 
 .leader-card h4 {
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 0.4rem;
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-xs);
+}
+
+/* Products — flat cards, photo is the card */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--sp-sm);
+}
+
+.product-card {
+  background: var(--canvas);
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: none;
+  transition: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.product-media {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--soft-cloud);
+  overflow: hidden;
+}
+
+.product-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: none;
+}
+
+.product-card:hover .product-media img {
+  transform: none;
+}
+
+.product-body {
+  padding: var(--sp-md) 0 var(--sp-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+  flex: 1;
+}
+
+.product-body h3 {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.product-body .muted {
+  font-size: 14px;
+  color: var(--mute);
+}
+
+.product-cta {
+  margin-top: var(--sp-md);
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.product-cta:hover {
+  color: var(--mute);
 }
 
 /* Contact */
 .contact-grid {
   display: grid;
-  gap: 1.6rem;
+  gap: var(--sp-sm);
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .contact-item {
-  background: linear-gradient(165deg, rgba(19, 24, 32, 0.9), rgba(12, 13, 18, 0.95));
-  border-radius: var(--radius);
-  padding: 1.6rem;
-  border: 1px solid rgba(154, 167, 180, 0.12);
+  background: var(--soft-cloud);
+  border-radius: 0;
+  padding: var(--sp-xl);
+  border: none;
 }
 
 .contact-item h4 {
-  font-family: "Poppins", sans-serif;
-  margin: 0.7rem 0 0.4rem;
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin: var(--sp-md) 0 var(--sp-xs);
+}
+
+.contact-item a {
+  text-decoration: none;
 }
 
 /* Social */
 .socials {
   display: flex;
-  gap: 1.2rem;
+  gap: var(--sp-md);
   flex-wrap: wrap;
 }
 
 .social-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.7rem 1rem;
-  background: rgba(42, 125, 225, 0.12);
-  border-radius: 999px;
-  border: 1px solid rgba(42, 125, 225, 0.3);
+  gap: 0.5rem;
+  padding: 12px 24px;
+  min-height: 48px;
+  background: var(--soft-cloud);
+  border-radius: var(--r-lg);
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: opacity 0.15s ease;
 }
 
+.social-link:hover {
+  opacity: 0.8;
+}
+
+/* Footer */
 footer {
-  padding: 2.5rem 0;
-  text-align: center;
-  color: var(--muted);
-  border-top: 1px solid rgba(154, 167, 180, 0.12);
+  padding: var(--sp-section) 0;
+  text-align: left;
+  color: var(--mute);
+  border-top: 1px solid var(--hairline);
+}
+
+footer p {
+  font-size: 14px;
+}
+
+footer a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 /* Utilities */
 .muted {
-  color: var(--muted);
+  color: var(--mute);
 }
 
 .divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(154, 167, 180, 0.4), transparent);
-  margin: 2rem 0;
+  background: var(--hairline);
+  margin: var(--sp-xl) 0;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* SVG icon strokes -> ink */
+.icon svg {
+  stroke: var(--ink) !important;
 }
 
 @media (max-width: 720px) {
   header {
     position: static;
-    background: #0b0d10;
   }
 
   .nav {
     flex-direction: column;
+    height: auto;
+    padding: var(--sp-md) 0;
+    gap: var(--sp-md);
   }
 
   .nav-links {
     flex-wrap: wrap;
     justify-content: center;
+    gap: var(--sp-lg);
   }
 
   .hero {
-    min-height: 90vh;
+    min-height: 85vh;
   }
 
   .hero video {
-    object-fit: contain;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    padding: 0 1.5rem var(--sp-xl);
+  }
+
+  .section {
+    padding: var(--sp-xxl) 0;
   }
 }
